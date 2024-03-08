@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TrapMovement : MonoBehaviour
 {
@@ -34,6 +35,14 @@ public class TrapMovement : MonoBehaviour
         {
             pos.x = Mathf.Sin(Time.time * -80 * Mathf.Deg2Rad) * length;
             transform.position = new Vector3(pos.x, posY, posZ);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 }

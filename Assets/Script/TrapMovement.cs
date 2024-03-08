@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class TrapMovement : MonoBehaviour
 {
-    public float speed = 1.0f;
+    [Range(1,5)] public float speed = 1.0f;
     public float length = 25.0f;
 
     public float posX = 0.0f;
@@ -23,6 +24,11 @@ public class TrapMovement : MonoBehaviour
 
     // Update is called once per frame
     void Update()
+    {
+        Move();
+    }
+
+    private void Move()
     {
         if (flip == false)
         {
